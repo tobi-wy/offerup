@@ -1,7 +1,6 @@
 <% was_validated = message.errors.any? %>
 
 <%= form_with(model: message, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for sender_id start -->
   <div class="form-group">
     <% sender_class = "form-control" %>
     <% sender_was_invalid = message.errors.include?(:sender) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :sender_id %>
-    <!-- Input for sender_id start -->
     <%= f.collection_select :sender_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for sender_id end -->
     <% if sender_was_invalid %>
       <% message.errors.full_messages_for(:sender).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for sender_id end -->
-  <!-- Label and input for recipient_id start -->
   <div class="form-group">
     <% recipient_class = "form-control" %>
     <% recipient_was_invalid = message.errors.include?(:recipient) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :recipient_id %>
-    <!-- Input for recipient_id start -->
     <%= f.number_field :recipient_id, class: recipient_class, placeholder: "Enter recipient" %>
-    <!-- Input for recipient_id end -->
     <% if recipient_was_invalid %>
       <% message.errors.full_messages_for(:recipient).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for recipient_id end -->
-  <!-- Label and input for text start -->
   <div class="form-group">
     <% text_class = "form-control" %>
     <% text_was_invalid = message.errors.include?(:text) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :text %>
-    <!-- Input for text start -->
     <%= f.text_field :text, class: text_class, placeholder: "Enter text" %>
-    <!-- Input for text end -->
     <% if text_was_invalid %>
       <% message.errors.full_messages_for(:text).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for text end -->
-  <!-- Label and input for item_id start -->
   <div class="form-group">
     <% item_class = "form-control" %>
     <% item_was_invalid = message.errors.include?(:item) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :item_id %>
-    <!-- Input for item_id start -->
     <%= f.collection_select :item_id, Item.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for item_id end -->
     <% if item_was_invalid %>
       <% message.errors.full_messages_for(:item).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for item_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
