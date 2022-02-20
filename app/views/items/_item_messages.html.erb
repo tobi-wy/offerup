@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Messages
+
+    <a data-toggle="collapse" href="#item_messages_new_form">
+      Add message
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @item.messages.each do |message| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to message, message %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to message, method: :delete, data: { confirm: "Do you really want to delete this message" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="item_messages_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
