@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  mount_base64_uploader :photo, PhotoUploader
+
   # Direct associations
 
   belongs_to :category
