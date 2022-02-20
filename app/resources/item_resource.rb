@@ -13,6 +13,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :user
+
   # Indirect associations
 
 end
