@@ -2,11 +2,11 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :messages,
-             :foreign_key => "sender_id",
-             :dependent => :destroy
+             foreign_key: "sender_id",
+             dependent: :destroy
 
   has_many   :items,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -17,5 +17,4 @@ class User < ApplicationRecord
   def to_s
     username
   end
-
 end
