@@ -13,6 +13,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :category
+
   has_many   :messages
 
   belongs_to :user
