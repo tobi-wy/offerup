@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  has_many   :messages,
+             :dependent => :destroy
+
   belongs_to :user
 
   # Indirect associations
